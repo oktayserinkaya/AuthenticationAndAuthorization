@@ -1,0 +1,58 @@
+﻿@{
+	ViewData["Title"] = "Register";
+}
+@model RegisterVM
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title">Kayıt Ol</h3>
+			</div>
+
+			<form asp-action="Register">
+				<div class="card-body">
+					<div>
+						<label asp-for="FirstName" class="form-label"></label>
+						<input asp-for="FirstName" class="form-control" />
+						<span asp-validation-for="FirstName" class="text-danger"></span>
+					</div>
+					<div>
+						<label asp-for="LastName" class="form-label"></label>
+						<input asp-for="LastName" class="form-control" />
+						<span asp-validation-for="LastName" class="text-danger"></span>
+					</div>
+					<div>
+						<label asp-for="Birthdate" class="form-label"></label>
+						<input asp-for="Birthdate" class="form-control" />
+						<span asp-validation-for="Birthdate" class="text-danger"></span>
+					</div>
+					<div>
+						<label asp-for="UserName" class="form-label"></label>
+						<input asp-for="UserName" class="form-control" />
+						<span asp-validation-for="UserName" class="text-danger"></span>
+					</div>
+					<div>
+						<label asp-for="Email" class="form-label"></label>
+						<input asp-for="Email" class="form-control" />
+						<span asp-validation-for="Email" class="text-danger"></span>
+					</div>
+					<div>
+						<label asp-for="Password" class="form-label"></label>
+						<input asp-for="Password" class="form-control" />
+						<span asp-validation-for="Password" class="text-danger"></span>
+					</div>
+					<div>
+						<label asp-for="CheckPassword" class="form-label"></label>
+						<input asp-for="CheckPassword" class="form-control" />
+						<span asp-validation-for="CheckPassword" class="text-danger"></span>
+					</div>
+				</div>
+				<div class="card-footer d-flex align-items-center justify-content-between" style="height:50px;">
+					<a asp-action="Login" asp-route-returnUrl="/Home/Index">Zaten Bir Hesabın Var mı? Giriş Yap!</a>
+					<button type="submit" class="btn btn-outline-success">Kayıt Ol!</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
