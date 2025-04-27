@@ -1,0 +1,52 @@
+﻿@model AssignToRoleVM
+
+@{
+    ViewData["Title"] = "Rol Atama";
+}
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Rol Atamaları - @Model.RoleName</h3>
+        </div>
+
+        <form asp-action="AssignToRole" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="RoleName" />
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Role Sahip Olanlar</h5>
+                        <div class="list-group">
+                            @foreach (var user in Model.HasRole)
+                            {
+                                <label class="list-group-item">
+                                    <input type="checkbox" name="DeleteIds" value="@user.Id" class="form-check-input me-1" />
+                                    @user.UserName (@user.Email)
+                                </label>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h5>Role Sahip Olmayanlar</h5>
+                        <div class="list-group">
+                            @foreach (var user in Model.HasNotRole)
+                            {
+                                <label class="list-group-item">
+                                    <input type="checkbox" name="AddIds" value="@user.Id" class="form-check-input me-1" />
+                                    @user.UserName (@user.Email)
+                                </label>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer d-flex justify-content-end">
+                <button type="submit" class="btn btn-success">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>

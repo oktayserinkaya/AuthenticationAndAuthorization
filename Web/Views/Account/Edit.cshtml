@@ -1,0 +1,51 @@
+﻿@{
+	ViewData["Title"] = "Edit";
+}
+@model EditUserVM
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title">Bilgileri Güncelle</h3>
+			</div>
+
+			<form asp-action="Edit">
+				<input type="hidden" asp-for="Id" />
+				<div class="card-body">
+					<div>
+						<label asp-for="FirstName" class="form-label"></label>
+						<input asp-for="FirstName" class="form-control" />
+						<span asp-validation-for="FirstName" class="text-danger"></span>
+					</div>
+					<div>
+						<label asp-for="LastName" class="form-label"></label>
+						<input asp-for="LastName" class="form-control" />
+						<span asp-validation-for="LastName" class="text-danger"></span>
+					</div>
+					<div>
+						<label asp-for="Birthdate" class="form-label"></label>
+						<input asp-for="Birthdate" class="form-control" />
+						<span asp-validation-for="Birthdate" class="text-danger"></span>
+					</div>
+					<div>
+						<label asp-for="UserName" class="form-label"></label>
+						<input asp-for="UserName" class="form-control" />
+						<span asp-validation-for="UserName" class="text-danger"></span>
+					</div>
+					<div>
+						<label asp-for="Email" class="form-label"></label>
+						<input asp-for="Email" class="form-control" />
+						<span asp-validation-for="Email" class="text-danger"></span>
+					</div>
+					<div>
+						<a class="btn btn-outline-primary mt-25" asp-action="ChangePassword" asp-route-userName="@Model.UserName">Şifre Değiştir</a>
+					</div>
+				</div>
+				<div class="card-footer d-flex align-items-center justify-content-end" style="height:50px;">
+					<button type="submit" class="btn btn-outline-success">Kaydet</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
